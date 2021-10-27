@@ -14,7 +14,6 @@ public class Mail {
     public String getDom() {
         String splitSecond = this.mail.substring(this.mail.indexOf("@") + 1);
         String res = this.mail.substring(this.mail.indexOf("@") + 1);
-        System.out.println(res);
         return res;
     }
 

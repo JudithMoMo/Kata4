@@ -6,13 +6,39 @@ import kata4.view.*;
 
 public class Kata_4 {
 
-    public static void main(String[] args) {
-        String filename = new String("C:\\Users\\anime\\OneDrive\\Documentos\\NetBeansProjects\\Kata_4\\email.txt");
+    private List<Mail> mailList;
+    private Histogram<String> mailHistogram;
+    private HistogramDisplay histogramDisplay;
+    private String filename;
 
-        List<Mail> mailList = MailListReader.read(filename);
-        Histogram<String> mailHistogram = MailHistogramBuilder.build(mailList);
-        HistogramDisplay histogramDisplay = new HistogramDisplay(mailHistogram);
-        histogramDisplay.execute();
+    public static void main(String[] args) {
+        Kata_4 kata4 = new Kata_4();
+        kata4.execute();
+
+    }
+
+    private void input() {
+        filename = new String("C:\\Users\\anime\\OneDrive\\Documentos\\NetBeansProjects\\Kata_4\\email.txt");
+
+    }
+
+    private void output() {
+        this.histogramDisplay.execute();
+
+    }
+
+    private void process() {
+        this.mailList = MailListReader.read(filename);
+        this.mailHistogram = MailHistogramBuilder.build(mailList);
+        this.histogramDisplay = new HistogramDisplay(mailHistogram);
+
+    }
+
+    private void execute() {
+        input();
+        process();
+        output();
+
     }
 
 }
